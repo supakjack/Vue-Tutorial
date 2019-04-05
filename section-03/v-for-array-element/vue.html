@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script style="text/javascript" src="../vue.js"></script>
+    <title>V-for</title>
+</head>
+<body>
+        <div id='app'>
+            <ul>
+                <li v-for='element in infor_set'>{{element}}</li>
+            </ul>
+        </div>
+    <script>
+        var model=({
+            infor_set : [
+                "first",
+                "second",
+                "third",
+                "fifth",
+                "new: sixth"
+            ],
+        })
+        var vm = new Vue({
+            el:'#app',
+            data:model,
+        })
+    </script>
+</body>
+</html>
