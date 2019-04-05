@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="./vue.js"></script>
+	<title>V-on</title>
+</head>
+<body>
+	
+	<div id="app">
+		<button v-on:click="sayhi">click me</button>
+		<br/>
+		<button v-on:click="show('argument value','argument value 2')">click me</button>
+		<br/>
+		<button @click="sayhi">click me</button>
+		<br/>
+		<span>{{message}}</span> <button @click="message=!message">Click to change</button>
+	</div>
+
+	<script>
+		var vue=new Vue({
+			el:'#app',
+			data:{
+				message:false,
+			},
+			methods:{
+				sayhi:function(){
+					alert('สวัสดีครับ')
+				},
+				show:function(v1,v2){
+					alert(v1+"1 , "+v2)
+				}
+			},
+		})
+	</script>
+</body>
+</html>

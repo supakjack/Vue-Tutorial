@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="./vue.js"></script>
+	<title>V-show</title>
+</head>
+<body>
+	
+	<div id="app">
+		<span v-show="message">Show</span>
+		<br/>
+		<span v-if="message">if Show</span>
+		<span v-else>else Show</span>
+		<br/>
+		<span>{{message}}</span> <button @click="message=!message">Click to change</button>
+		<hr/>
+		<span v-if="score==3">score Begin : {{score}}</span>
+		<span v-else-if="score">score not zero : {{score}}</span>
+		<span v-else>score zero : {{score}}</span>
+		<button @click="score--">remove score</button>
+		<br/>
+	</div>
+
+	<script>
+		var vue=new Vue({
+			el:'#app',
+			data:{
+				score:3,
+				message:false,
+			},
+			methods:{
+				sayhi:function(){
+					alert('สวัสดีครับ')
+				},
+				show:function(v1,v2){
+					alert(v1+"1 , "+v2)
+				}
+			},
+		})
+	</script>
+</body>
+</html>
