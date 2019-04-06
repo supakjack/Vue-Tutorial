@@ -21,6 +21,16 @@
 		<input v-model="message" />
 		<hr />
 		<p>Process value : <span>{{computed_message}}</span></p>
+		<hr />
+		<span>two way data exchange computed and data</span>
+		<div class="frame">
+			<p>First Name : </p> <input v-model="first_name"/>
+			<p>Family Name : </p> <input v-model="family_name"/>
+			<div class="line">
+				<p>Full Name : </p> <input v-model="full_name" />
+			</div>
+		</div>
+
 	</div>
 
 	<script>
@@ -29,6 +39,8 @@
 			data: {
 				message: 'default none',
 				title: 'title set in title',
+				first_name: 'Jack',
+				family_name: 'Supak',
 			},
 			filters: {
 				capital: function (v) {
@@ -38,6 +50,16 @@
 			computed:{
 				computed_message:function(){
 					return this.message.split('').reverse().join('')
+				},
+				full_name:{
+					get:function(){
+						return this.first_name+' '+this.family_name
+					},
+					set:function(v){
+						var arr = v.split(' ')
+						this.first_name = arr[0]
+						this.family_name = arr[arr.length-1]
+					},
 				}
 			},
 		})
