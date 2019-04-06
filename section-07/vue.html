@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="./vue.js"></script>
+	<title>V-show</title>
+</head>
+
+<body>
+
+	<div id="app">
+		<select v-model="message">
+			<option v-for='element in list_info' v-bind:value='element.value'>{{element.text}}</option>
+		</select>
+		<span>You have select : <span></span>{{message}}</span>
+	</div>
+
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				message:'default none',
+				list_info:[
+					{value:'jack',text:'God',},
+					{value:'pond',text:'Human 1',},
+					{value:'tony',text:'Human 2',},
+					{value:'jame',text:'Human 3',},
+					{value:'supak',text:'First name god',},
+				],
+			},
+		})
+	</script>
+</body>
+
+</html>
