@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="./vue.js"></script>
+	<title>V-Project</title>
+	<style>
+		h1,div,p,span{font-size: 18px;font-family: Helvetica}
+		.warning{border: red solid 2px}
+	</style>
+</head>
+
+<body>
+
+	<div id="app">
+		<textarea v-bind:class="{warning:!remain}" v-model="message" v-on:input="check"></textarea>
+		<p>{{remain}}/{{limit}}</p>
+	</div>
+
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				message:"User-submitted data stored here...",
+				limit:50,
+			},
+			computed: {
+				remain:function(){
+					return this.limit - this.message.length
+				},
+			},
+			methods: {
+				check:function(){
+					if(this.remain<0){
+						this.message = this.message.substr(0,this.limit)
+					}
+				},
+			},
+		})
+	</script>
+</body>
+
+</html>
