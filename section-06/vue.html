@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="./vue.js"></script>
+	<title>V-show</title>
+</head>
+
+<body>
+
+	<div id="app">
+		<span>{{message}}</span>
+		<br />
+		<input v-model="message" />
+		<hr>
+		lazy :
+		<input v-model.lazy="message" />
+		<hr>
+		number :
+		<input v-model.number='message' />
+		<hr>
+		textarea :
+		<textarea v-model="message"></textarea>
+		<hr>
+		radio :
+		<span>Jack</span><input type="radio" value="jack" v-model="message" />
+		<span>Supak</span><input type="radio" value="supak" v-model="message" />
+		<span>Pukdam</span><input type="radio" value="pukdam" v-model="message" />
+		<hr>
+		checkbox :
+		<div>
+			<p>{{arrmsg}}</p>
+		</div>
+		<span>Jack</span><input type="checkbox" value="jack" v-model="arrmsg" />
+		<span>Supak</span><input type="checkbox" value="supak" v-model="arrmsg" />
+		<span>Pukdam</span><input type="checkbox" value="pukdam" v-model="arrmsg" />
+		<hr>
+		select :
+		<select v-model="message">
+			<option value="aJack">A Jack</option>
+			<option value="bJack">B Jack</option>
+			<option value="cJack">C Jack</option>
+		</select>
+	</div>
+
+	<script>
+		var vue = new Vue({
+			el: '#app',
+			data: {
+				message: "Default messsage",
+				arrmsg: [],
+			},
+		})
+	</script>
+</body>
+
+</html>
